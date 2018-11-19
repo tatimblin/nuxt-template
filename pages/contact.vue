@@ -1,8 +1,11 @@
 <template>
     <div>
         <p>{{msg}}</p>
-        <form name="contact" action="" method="post" netlify>
+        <form name="contact" action="/success" method="post" netlify-honeypot="bot-field" netlify>
             <input type="hidden" name="form-name" value="contact" />
+            <p class="hidden">     
+                <label>Don’t fill this out: <input name="bot-field"></label>   
+            </p>
             <label class="form-label" for="name">
             Name:
             </label>
@@ -25,8 +28,6 @@ export default {
     data() {
         return {
             msg: 'contact page',
-            panelists: ['Evan You', 'Chris Fritz'],
-            defaultPanelist: 'Evan You',
         };
     },
 }
